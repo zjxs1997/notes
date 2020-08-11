@@ -1,0 +1,1 @@
+java -Xmx2G -jar meteor-*.jar test.txt reference.txt -l en -norm
