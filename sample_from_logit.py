@@ -6,6 +6,8 @@ from torch.distributions import Categorical
 # input: logit [batch size, vocab size]
 # output: indices[batch size]
 def top_p_sample(logits, p=0.9):
+    # 如果要用带temperature的sample的话，在softmax之前让logits除以temperature即可。
+    # temperature越小，会导致prob之间差距拉的越开，sample的效果更接近greedy
     probs = torch.softmax(logits, dim=-1)
     sorted_probs, sorted_indices = probs.sort(descending=True)
     cum_probs = torch.cumsum(sorted_probs, dim=-1)
