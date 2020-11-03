@@ -34,6 +34,8 @@ try:
 
 比如vscode和pycharm。
 
+在ipython里也可以直接使用。执行一个代码块，或者`run run.py`出错的时候，可以直接输入`debug` magic命令，进入pdb调试现场，自动定位到报错的地方。当然jupyter notebook肯定也可以。
+
 
 
 #### 调试命令
