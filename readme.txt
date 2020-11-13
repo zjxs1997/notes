@@ -6,11 +6,17 @@
 
 # 也可以重写一下以前的笔记？有些可能还是用md格式看更方便
 
+_bpe是一个很垃圾的byte pair encoding代码，不能用（笑）
+
 baidu translate是调用百度翻译的api，但是官网有链接示例代码，白写了。。。
 
-bpe是一个很垃圾的byte pair encoding代码，不能用（笑）
+latex里是latex相关的笔记
 
 pointer network目录下是一个简单的指针网络代码
+
+python-libs里是python的一些库的使用笔记，有内置的也有第三方的
+
+pytorch就是torch以及相关的库的笔记
 
 torchtext:
 
