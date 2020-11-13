@@ -22,9 +22,12 @@ from transformers import XLNetTokenizer, XLNetModel
 tokenizer = XLNetTokenizer.from_pretrained('/home/xus/.xlnet/tokenizer')
 model = XLNetModel.from_pretrained('/home/xus/.xlnet/base')
 
-input_ids = torch.tensor(tokenizer.encode("Hello, my dog is cute", add_special_tokens=True)).unsqueeze(0)
+input_ids = torch.tensor(tokenizer.encode(
+    "Hello, my dog is cute", add_special_tokens=True
+)).unsqueeze(0)
 outputs = model(input_ids)
-last_hidden_states = outputs[0]  # The last hidden-state is the first element of the output tuple
+last_hidden_states = outputs[0]
+# The last hidden-state is the first element of the output tuple
 ```
 这段代码最后输出的tensor是形状为(batch size, seq len, 768)的。tokenizer encode的时候指定add_special_tokens为true会在后面加入cls和sep token
 
@@ -36,10 +39,13 @@ import torch
 tokenizer = BertTokenizer.from_pretrained('/home/xus/.bert/tokenizer/vocab.txt')
 model = BertModel.from_pretrained('/home/xus/.bert/base/')
 
-input_ids = torch.tensor(tokenizer.encode("Hello, my dog is cute", add_special_tokens=True)).unsqueeze(0)  # Batch size 1
+input_ids = torch.tensor(tokenizer.encode(
+    "Hello, my dog is cute", add_special_tokens=True
+)).unsqueeze(0)  # Batch size 1
 outputs = model(input_ids)
 
-last_hidden_states = outputs[0]  # The last hidden-state is the first element of the output tuple
+last_hidden_states = outputs[0]
+# The last hidden-state is the first element of the output tuple
 ```
 最后输出的tensor形状同样是(batch size, seq len, 768)。tokenizer encode的时候指定add_special_tokens为true会分别在前后加入cls和sep token
 
@@ -47,10 +53,14 @@ last_hidden_states = outputs[0]  # The last hidden-state is the first element of
 ```python
 from transformers import RobertaModel, RobertaTokenizer
 tokenizer = RobertaTokenizer.from_pretrained('/home/xus/.roberta/tokenizer')
-# tokenizer可以用encode和decode方法，更快，其中encode可以指定add_special_tokens参数为True
+# tokenizer可以用encode和decode方法，更快，
+# 其中encode可以指定add_special_tokens参数为True
 
 model = RobertaModel.from_pretrained('/home/xus/.roberta/base')
-# RobertaModel重写（override）了BertModel类，所以用法也应该一样，输入[batch size, seq len]的tensor，输出是个tuple，第一个元素是[batch size, seq len, 768]，第二个元素是[batch size, 768]
+# RobertaModel重写（override）了BertModel类，所以用法也应该一样，
+# 输入[batch size, seq len]的tensor，
+# 输出是个tuple，第一个元素是[batch size, seq len, 768]，
+# 第二个元素是[batch size, 768]
 ```
 **注意：Roberta的某些token的id和Bert不一样，不能直接抄代码，而且用的是`<s> </s>`的体系，而不像bert一样是cls与sep**
 
@@ -63,12 +73,20 @@ gpt2的special token只有三个，分别是bos，eos和unk，而且这三个tok
 
 方法，手动添加：
 ```python
-special_tokens_dict = {'bos_token': '<BOS>', 'eos_token': '<EOS>', 'pad_token': '<PAD>'}
-num_added_toks = tokenizer.add_special_tokens(special_tokens_dict) # return 3
-# 此时len(tokenizer)从原来的50257变成了50260，tokenizer.eos_token等都变成了新的token
+special_tokens_dict = {
+    'bos_token': '<BOS>', 
+    'eos_token': '<EOS>', 
+    'pad_token': '<PAD>'
+}
+num_added_toks = tokenizer.add_special_tokens(special_tokens_dict)
+# return 3
+# 此时len(tokenizer)从原来的50257变成了50260，
+# tokenizer.eos_token等都变成了新的token
 # 当然也要修改model的embedding层
 model.resize_token_embeddings(len(tokenizer))
-# 此时，model的get_input_embeddings与get_output_embeddings得到的分别是50260的embedding层与(768, 50260)的全连接层，这些新出来的参数需要finetune
+# 此时，model的get_input_embeddings与get_output_embeddings得到的
+# 分别是50260的embedding层与(768, 50260)的全连接层，
+# 这些新出来的参数需要finetune
 ```
 gpt2是由transformer decoder堆叠而成的，所以应该是一个token接一个token进行生成。我现在的方式是用`src+<bos>+trg+<eos>`这个拼接后的序列作为data，（同时shift right作为目标），然后在gpt2上做语言模型的finetune。
 
