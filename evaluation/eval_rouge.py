@@ -1,3 +1,5 @@
+# 详见：https://github.com/pltrdy/rouge
+
 from rouge import Rouge
 
 import en_core_web_sm

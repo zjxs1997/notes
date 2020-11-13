@@ -1,1 +1,3 @@
 java -Xmx2G -jar meteor-*.jar test.txt reference.txt -l en -norm
+
+在icst集群上也放了一份，并且写了个shell函数meteor <test-path> <ref-path>

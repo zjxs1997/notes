@@ -1,3 +1,9 @@
+"""
+    不同的库评价得到的bleu会有区别，除了nltk之外，至少还有
+    torchtext、sacreBLEU这些库可以评价bleu值。
+    目前似乎认为sacreBLEU得到的结果是比较标准的。
+"""
+
 from nltk.translate.bleu_score import corpus_bleu
 
 import en_core_web_sm
