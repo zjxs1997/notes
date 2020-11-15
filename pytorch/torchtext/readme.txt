@@ -1,0 +1,7 @@
+custom目录下演示了如何用自定义的方式载入数据集。
+
+seq2seq目录下就是处理seq2seq任务，比如机器翻译等。用了TranslationDataset这个类。自动添加sos和eos。
+
+seq2num处理的是序列二分类的任务，比如语句情感分析等。没找到合适的类，用的也是TranslationDataset。在TARGET端用的field不进行vocab化和序列化，处理起来没有问题，就是看起来有点怪怪的。
+
+tabular目录下也是seq2seq的任务，不过读取数据集方式不一样，用了更具有通用性的TabularDataset，这样数据的source和target不会被限制，而且也可以有多个source。
