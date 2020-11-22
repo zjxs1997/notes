@@ -15,6 +15,9 @@ pdb有点类似gdb，是一个命令行调试工具。用`pip`可以安装。有
 ```python
 import ipdb
 ipdb.set_trace()
+# set_trace似乎会初始化一个新的pdb，无论之前有没有执行过。
+# 因此最好不要把这个放在循环中使用。
+# 因为每次执行到这一行都会把断点等信息初始化掉。
 ```
 
 效果和`python -m ipdb run.py`，然后在这一行加了断点一样，Python运行到这里后会自动停下来，然后就可以调试了。
