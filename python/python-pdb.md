@@ -50,9 +50,9 @@ try:
 
 `n`：next，执行下一条语句
 
-`b`：break，设置断点（用行号）。也可以设置到别的文件`b <filepath>:<line number>`，也可以设置到库文件里。
+`b`：break，设置断点（用行号）。也可以设置到别的文件`b <filepath>:<line number>`，也可以设置到库文件里。如果不加任何参数，则会打印所有断点信息。
 
-`cl`：clear，删除断点。
+`cl`：clear，删除断点。参数是断点编号。
 
 `p`：print，打印变量、表达式。命令`pp`，用pprint打印。`p locals()`打印所有本地变量。
 
