@@ -18,7 +18,7 @@ Hostname 123.4.5.6
 `ssh linux -J linux2`就是通过linux2作为跳板ssh到linux。需要多个跳板的话则以逗号隔开（真的有人会这么做吗。。。）`ssh linux -J l1,l2,l3`
 跳板机的ssh版本需要在openssh 7.3以上。
 
-跳板机在config重的设置也很简单，在Host下面加一行`ProxyJump linux2`即可。
+跳板机在config中的设置也很简单，在Host下面加一行`ProxyJump linux2`即可。
 
 
 
