@@ -1,31 +1,27 @@
-各种杂七杂八的垃圾小代码
+算是个人笔记吧
 
-# 需要好好整理一下了，太乱了。。。
+_deprecated目录下的东西就别看了= =
 
-# 可以逐步把别的地方的笔记搬过来？毕竟可以在GitHub上看还是舒服啊。。。
+cmd-related目录下是一些命令行工具以及配置的笔记
 
-# 也可以重写一下以前的笔记？有些可能还是用md格式看更方便
+latex目录下是latex相关，有模板（但估计也用不着了
 
-_bpe是一个很垃圾的byte pair encoding代码，不能用（笑）
+nlp-evaluation目录下是nlp中常见的自动评测指标，代码和笔记。
 
-baidu translate是调用百度翻译的api，但是官网有链接示例代码，白写了。。。
+pointer-network目录下是很久以前写的一个简单地指针网络seq2seq代码。（是不是放进pytorch目录下比较好
 
-evaluation中是NLP任务中常见的自动评测指标，bleu、rouge和meteor。
+python目录下则是关于python语言的一些笔记，比如调试的pdb、import的注意事项等。
 
-latex里是latex相关的笔记
+python-libs中是一些python库，有些是第三方的，有些是内建的。上面那个pdb之类的也不太好分类。胡乱放了。
 
-pointer network目录下是一个简单的指针网络代码
+pytorch目录下则是pytorch以及相关衍生库的笔记。比如torchtext的使用、huggingface系列的笔记等。
 
-python目录下放了一些有关python编程语言的机制以及一些小工具的笔记。
+server-related目录下是和服务器相关的。里面也涉及到了一些命令行之类的。和cmd_related一样感觉不太好分类。
 
-python-libs里是python的一些库的使用笔记，有内置的也有第三方的
+# 有些一下子找不到的，建议使用全局搜索。
 
-pytorch就是torch以及相关的库的笔记
-
-server-related目录下放了和服务器比较相关的笔记。
-
-### 还有一些杂七杂八的，暂时不知道怎么归类，就放在根目录下了。
-
-
+# todo：
+# 搬运更多备忘录/notability/good notes中的笔记。甚至可以配点插图。
+# 完善次级目录结构，以及命名方式等规则。补完readme
 
 
