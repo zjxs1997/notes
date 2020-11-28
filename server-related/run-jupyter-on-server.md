@@ -11,7 +11,14 @@
 
 ---
 
-为了方便起见，我在服务器配置了jpt脚本函数，直接执行`jpt <port>`即可。而在本地设置了`alias jptt='ssh -N -f -L localhost:8765:localhost:8889’`，因此在本地执行`jptt icst4`即可。
+为了方便起见，我在服务器配置了jpt脚本函数，直接执行`jpt <port>`即可。而在本地设置了`alias jptt='ssh -N -f -L localhost:8765:localhost:8889'`，因此在本地执行`jptt icst4`即可。
+以及设置了
+```bash
+function jptf() {
+    ssh -N -f -L localhost:$1:localhost:$2 $3
+}
+```
+这个自由度更高的命令。可以`jptf 8765 8889 icst4`
 
 但是我目前不知道如何关闭端口转发，就连关掉term也做不到。但貌似在切换代理/Wi-Fi等切换网络状态的时候就会自动关掉，神奇。
 
