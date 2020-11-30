@@ -6,7 +6,9 @@ hugging face有个transformers库，提供了很多预训练模型和utility。
 
 比如说使用xlnet模型。在用from_pretrain下载的时候，一般会输出一些信息，包含了下载的url。挂个代理手动下载一下，然后放到某个目录下，比如`~/.xlnet`，之后就可以从该目录load了。注意load模型的时候，需要目录下包含两个文件，一是config.json，另一个是pytorch_model.bin。（魔改config.json可以改变模型的某些表现，比如是否输出attention等）
 
-但如果是load tokenizer的话，只需要有个spiece.model文件即可，应该是词表文件？
+但如果是load tokenizer的话，只需要有个spiece.model文件即可，应该是词表文件？或者就是有一个vocab.txt文件。当然，也可以有config.json文件。
+
+现在HuggingFace网上的文档好像很喜欢用AutoModel和AutoTokenizer这两个类，在用AutoTokenizer的时候，目录下*一定*要有config.json。
 
 此外，transformers库里还提供了优化器AdamW，可以用来替代torch.optim.Adam？
 

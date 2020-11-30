@@ -1,0 +1,5 @@
+
+总结一下Field的用法，我觉得主要要注意的就是use_vocab和sequential。如果单纯是数字，那use_vocab就是False。但是数字的序列的情况下需要注意，pad_token这个必须要手动设置成pad_token_id，不然最后的结果中会用`<pad>`这个string来pad，就无法转成tensor了。
+
+Field里面的vocab，有两个字段，stoi和itos。stoi本质是个defaultdict，而itos是个list。非常需要注意的是！！！这两个东西的len返回的值不一样。因为Field在build_vocab的时候会传入min_freq参数。出现频率比这个低的都不会在itos中出现，但是，在stoi中会有，它们还会被default映射到unk_token_id。因此，初始化embedding之类的，一定要用len(itos)做参数。
+

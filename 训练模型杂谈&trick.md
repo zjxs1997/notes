@@ -15,3 +15,4 @@ suffix = sys[1] if len(sys) >= 2 else 'suffix'
 - 模型参数的初始化，可以使用apply函数，逐层递归init。
 - cross entropy loss可以指定ignore_index为PADDING_INDEX，这样在计算loss的时候就不会把padding加入。
 - 某tutorial推荐decode的时候用len=1的LSTM，而不是自己用LSTMCell，我也不知道有什么讲究。不过LSTMCell好像确实不能指定num_layers，毕竟就是单个cell。（然而decode的LSTM似乎也不需要多层？）
+- 训练模型的时候，不要只打印自动评价指标，最好随机挑一个example打印hypothesis和reference，这样才能找到问题所在。
