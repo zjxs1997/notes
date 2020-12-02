@@ -5,7 +5,8 @@
 
 x_t是时序t的输入，h_(t-1)是前一个隐状态（hidden），而c_(t-1)是前一个时序的内部状态（cell）。
 
-![公式](_img/lstm_equation.png)
+<!-- ![公式](_img/lstm_equation.png) -->
+<img src="_img/lstm_equation.png", style="zoom:50%">
 
 <!-- 额，好像公式编辑一时半会儿弄不好orz -->
 
