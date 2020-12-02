@@ -6,11 +6,10 @@
 x_t是时序t的输入，h_(t-1)是前一个隐状态（hidden），而c_(t-1)是前一个时序的内部状态（cell）。
 
 ![公式](_img/lstm_equation.png)
-$$
-z = tanh\(W [x_t, h_(t-1)]\)
-$$
 
-<!-- 额，好像公式一时半会儿弄不好orz -->
+<!-- 额，好像公式编辑一时半会儿弄不好orz -->
+
+上面的公式几个分别是输入门，遗忘门，data信息，输出门，candidate和hidden输出。
 
 总之，就是LSTM自己附带了cell状态，每个时序输入x和隐状态h，输出新的隐状态，并且更新自己内部的cell。
 
@@ -50,11 +49,11 @@ $$
 
 这是一个LSTMcell。
 
-<!-- 此处应有图 -->
+![LSTMcell](_img/lstm_cell.png)
 
 这是一个多层的LSTM：
 
-<!-- 此处应有图 -->
+![LSTM](_img/lstm.png)
 
 黄色部分表示输入input，绿色是输出output，蓝色则是h与c，较淡的是0，深的是n。从这个图中也可以看到，input的shape应该是[seq len, batch size, input size]，output是[seq len, batch size, hidden size * num direction]。而h与c则都是[num layer * num direction, batch size, hidden size]。
 
@@ -71,5 +70,5 @@ output[0, :, hidden_size:] == h_n[-1]
 # 反向的最终的h对应output[0]
 ```
 
-<!-- 还应该写一下h的作用（比如双向lstm中），seq2seq模板，还有pack之类的 -->
+<!-- 还应该写一下encoder的h在decoder怎么用，还有pack之类的 -->
 
