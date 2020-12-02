@@ -60,7 +60,7 @@ x_t是时序t的输入，h_(t-1)是前一个隐状态（hidden），而c_(t-1)�
 
 <!-- ![LSTM](_img/lstm.png) -->
 <div align="center">
-    <img src="_img/lstm.png">
+    <img src="_img/lstm.png" width="600">
 </div>
 
 黄色部分表示输入input，绿色是输出output，蓝色则是h与c，较淡的是0，深的是n。从这个图中也可以看到，input的shape应该是[seq len, batch size, input size]，output是[seq len, batch size, hidden size * num direction]。而h与c则都是[num layer * num direction, batch size, hidden size]。
