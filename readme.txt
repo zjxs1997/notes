@@ -18,6 +18,8 @@ pytorch目录下则是pytorch以及相关衍生库的笔记。比如torchtext的
 
 server-related目录下是和服务器相关的。里面也涉及到了一些命令行之类的。和cmd_related一样感觉不太好分类。
 
+toolkit下面是写的一些小工具代码snippet。
+
 # 有些一下子找不到的，建议使用全局搜索。
 
 # todo：
