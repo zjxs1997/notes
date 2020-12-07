@@ -10,6 +10,18 @@ hugging face有个transformers库，提供了很多预训练模型和utility。
 
 现在HuggingFace网上的文档好像很喜欢用AutoModel和AutoTokenizer这两个类，在用AutoTokenizer的时候，目录下*一定*要有config.json。
 
+因为各个机器存数据文件的目录都不一样，因此要写一个普适的，在多个机器上都能跑的代码，就需要判断机器的类别，从相应的目录读取文件。我目前常用的机器有三个，可以用这样一段代码来判断环境：
+```python
+if os.uname()[0] == 'Linux':
+    if os.uname()[1] == 'noctitax':
+        env = '170'
+    else:
+        env = 'cluster'
+else:
+    env = 'mbp'
+```
+但是这样做似乎不是很优雅，因此还有另一种方法。那就是用软链接`ln -s ~/.bert/xxx path-on-this-project`。这样可能在新创建项目的时候比较麻烦，但是之后写新的代码相对都会方便一些，不用每个代码头部都放那么一坨了orz。不过还要注意，要把这个软链接放到gitignore里面。
+
 此外，transformers库里还提供了优化器AdamW，可以用来替代torch.optim.Adam？
 
 ---
@@ -63,6 +75,9 @@ model = RobertaModel.from_pretrained('/home/xus/.roberta/base')
 # 输入[batch size, seq len]的tensor，
 # 输出是个tuple，第一个元素是[batch size, seq len, 768]，
 # 第二个元素是[batch size, 768]
+# ！！！
+# ！！！注意：transformer4.0之后不再是tuple了，用index来活的要的数据，
+# 而不是a, b = result这种方式
 ```
 **注意：Roberta的某些token的id和Bert不一样，不能直接抄代码，而且用的是`<s> </s>`的体系，而不像bert一样是cls与sep**
 
