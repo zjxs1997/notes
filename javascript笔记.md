@@ -35,3 +35,6 @@ for (var i of a) console.log(i[0], i[1]);
 
 
 - Array的sort方法会直接修改原始的array。另外用它排序数字的时候，它会默认用元素转换成的string比较。可以传入一个函数，参数是比较的对象x y，如果`x<y`则返回-1，大于返回1，相等返回0，升序排序。
+
+- 原型链 proto，blabla
+
