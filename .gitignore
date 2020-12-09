@@ -2,3 +2,4 @@
 !torchtext/custom/data/*
 .DS_Store
 **/*.pyc
+.vscode/*
