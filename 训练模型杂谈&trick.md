@@ -10,22 +10,30 @@ argv = sys
 suffix = sys[1] if len(sys) >= 2 else 'suffix'
 # sys[0]是执行的python文件（在命令行里敲的）名。
 
-# 不过我现在基本不会再用这种方式了，现在基本就是用argparse这个库，也可以传入suffix参数
+# 不过我现在现在基本就是用argparse这个库，也可以传入suffix参数，
+# 不会再用这种比较原始的方式了
 ```
+
+- 保存模型checkpoint的时候也可以把optimizer同时存一下，有的optimizer可能会有warmup之类的参数，需要记录一些额外的信息。如果训练完之后，发现模型还没有完全收敛，就可以同时载入checkpoint和optimizer，快速恢复训练现场。
 
 - 用torchtext库load_dataset的时候可以保存Dataset object，下次执行的时候检查是否已经有保存的了。如果有就直接load，省去了build from scratch的时间。
 
 - pytorch的torch.utils.checkpoint还挺好用的，可以节省显存，用来开大batch size还比较实用，不过速度会稍微慢点。
 
 - 模型参数的初始化，可以使用apply函数，逐层递归init。
+
 - cross entropy loss可以指定ignore_index为PADDING_INDEX，这样在计算loss的时候就不会把padding加入。
+
 - 某tutorial推荐decode的时候用len=1的LSTM，而不是自己用LSTMCell，我也不知道有什么讲究。不过LSTMCell好像确实不能指定num_layers，毕竟就是单个cell。（然而decode的LSTM似乎也不需要多层？）
+
 - 训练模型的时候，不要只打印自动评价指标，最好随机挑一个example打印hypothesis和reference，这样才能找到问题所在。
 
 - clip_grad_norm_还是一个比较有用的点，虽然可能很烦，但是最好还是写一下。
 
+- 训练过程可以用一个try except KeyboardInterruption包起来，这样的好处是，看log的时候人工确认到训练差不多了、收敛了的时候，可以ctrl+c直接退出，然后执行后续的，比如evaluate的操作。
 
 #### transformer的训练心得（？）
+
 - batch size一定要开大，如果显存不够大，也可以退而求其次，用gradient accumulate
 
 - 要用warmup，现在有一个NoamOpt的代码，是在原始的torch optimizer的基础上的包装代码。
