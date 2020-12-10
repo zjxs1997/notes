@@ -3,9 +3,8 @@
 - js的字符串里有个反引号，\`，这个可以用来写python中三个引号的换行字符串，也可以写类似于f-string的东西。
 
 ```javascript
-var s = `dsfsd
-sdfsd
-sdf`;
+var s = `aaa
+bbb`;
 console.log(s);
 
 var name = 'tom';
@@ -46,7 +45,45 @@ var {name, sex:hehe} = obj;
 
 - Array的sort方法会直接修改原始的array。另外用它排序数字的时候，它会默认用元素转换成的string比较。可以传入一个函数，参数是比较的对象x y，如果`x<y`则返回-1，大于返回1，相等返回0，升序排序。
 
-- 原型链 proto，blabla，todo
+- proto。js中没有面向对象语言中类与对对象的概念，只用通过proto继承的方式。常用的方式是创建一个原型对象，然后别的对象继承它。
 
+- 构造函数。
+```javascript
+function Student(name) {
+    this.name = name;
+    this.hello = function () {
+        alert('Hello, ' + this.name + '!');
+    }
+}
+var tom = new Student('Tom');
+// 得到一个新的对象
+```
+
+但是通过以上方法得到的各个对象的方法其实都是各自放一份代码，如果创建的对象很多，则会额外占用很大的内存，因此方法最好用这种方式：
+```javascript
+function Student(name) {
+    this.name = name;
+}
+Student.prototype.hello = function () {
+    alert('Hello, ' + this.name + '!');
+};
+```
+这样得到的各个对象的方法都是同一个了，用===比较也都是true。
+
+关于原型链、原型继承之类的这些我看着都头疼，不看了orz。
+
+- class。ES6之后引入了class关键字，就可以用class来定义类了。
+```javascript
+class Student {
+    constructor(name) {
+        this.name = name;
+    }
+    hello() {
+        alert('Hello, ' + this.name + '!');
+    }
+}
+// class PrimaryStudent extends Student 
+// 继承可以直接这么写
+```
 
 
