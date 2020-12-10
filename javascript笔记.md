@@ -29,12 +29,24 @@ for (var i of a) console.log(i[0], i[1]);
 ```
 而forEach是通过array之类的调用的，传入一个函数，其参数为element指向当前元素的值，index指向当前索引，array指向调用的array本身。
 
+- js的函数中可以使用arguments“参数”。可以视为一个array，记录了所有的参数。另外，还支持...rest参数,没有被绑定的实参都会送到rest中，有点类似python里的*args。
 
+- 关于作用域。一个变量，如果没用var let之类的修饰，那它就是全局的，可以通过window.它的名字获取。如果用var修饰，那它的作用域就是整个函数内部。就算只是在函数的某个块中使用，也可以在函数的其他地方获取，因为js会预处理函数，相当于把所有var定义都提到函数最前面。用let修饰的变量的作用域则是块内部，比如某个循环块里面，出了这个块就不能访问。
 
-（中间省略一大堆。。。）
+- 解构赋值，有点类似python里的。比如：`var [x,y,x] = [1,2,3]`，对，它外面要再套一层。对于object也可以进行解构赋值，比如：
+```javascript
+var obj = {name: 'xs', address: {city:'baijing', disctrict: 'haidian'}, sex:'male'};
+var {address: {city}, name} = obj;
+// 这样可以得到city和name两个新变量
+var {name, sex:hehe} = obj;
+// 如果不想用原始object中的名字做新变量名，可以这样，会得到name和hehe两个变量。
+```
 
+- 方法、this等。对象的方法（函数）中可以指定this。这个函数如果通过方法的方式调用（即a.b()），这个this则会指向调用方法的那个对象，但如果通过函数的方式调用（即直接b()），那么this则会指向window。这是一个比较令人迷惑的点，有的时候对象里逐层定义的函数也会访问不到对象，这个时候一般会用`var that = this;`这个小trick来保存之前的this。通过函数的apply或call方法，可以显示地指定this指向的对象（也就是apply或call得到的第一个变量）。apply需要把函数的参数用array打包起来，而call则不用。
 
 - Array的sort方法会直接修改原始的array。另外用它排序数字的时候，它会默认用元素转换成的string比较。可以传入一个函数，参数是比较的对象x y，如果`x<y`则返回-1，大于返回1，相等返回0，升序排序。
 
-- 原型链 proto，blabla
+- 原型链 proto，blabla，todo
+
+
 
