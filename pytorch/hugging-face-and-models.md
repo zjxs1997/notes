@@ -105,6 +105,9 @@ model.resize_token_embeddings(len(tokenizer))
 # 分别是50260的embedding层与(768, 50260)的全连接层，
 # 这些新出来的参数需要finetune
 ```
+
+当然，因为special_token总共就那么几个，如果要添加自定义标签，可以直接用`tokenizer.add_tokens()`，参数可以是一个token，也可以是token的list，返回值是新添加的token数量。
+
 gpt2是由transformer decoder堆叠而成的，所以应该是一个token接一个token进行生成。我现在的方式是用`src+<bos>+trg+<eos>`这个拼接后的序列作为data，（同时shift right作为目标），然后在gpt2上做语言模型的finetune。
 
 生成的时候，用`src+<bos>`作为最初的输入，然后一个一个生成token。
