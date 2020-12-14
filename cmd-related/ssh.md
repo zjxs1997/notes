@@ -34,7 +34,7 @@ Hostname 123.4.5.6
 在本地执行命令`ssh -D local-port tunnel-host -N`。其中-D表示动态转发，-N表示只进行端口转发，不登陆；local-port为本地端口，tunnel-host为ssh服务器。
 
 动态转发如图所示：
-[动态转发](_img/dynamic_forward.png)
+![动态转发](_img/dynamic_forward.jpeg)
 
 这种转发采用了socks5协议，访问外部网站时，需要把http请求转成socks5协议。
 
@@ -47,7 +47,7 @@ Hostname 123.4.5.6
 此外说一句，-f表示的是在后台执行。用后台执行的话想直接退出就不是很方便，开个tmux更好。
 
 本地转发如图所示：
-[本地转发](_img/local_forward.png)
+![本地转发](_img/local_forward.jpeg)
 
 ### 远程转发
 
@@ -56,6 +56,6 @@ Hostname 123.4.5.6
 在跳板机执行`ssh -R local-port:target-host:target-port -N local`，-R表示远程转发。需要本机安装了ssh server。
 
 远程转发如图所示：
-[远程转发](_img/remote_forward.png)
+![远程转发](_img/remote_forward.jpeg)
 
 
