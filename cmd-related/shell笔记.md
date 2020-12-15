@@ -138,15 +138,85 @@ if与then同行时，需要分号分隔。if之后的commands的最后一条命�
 
 顺带一提，如果对于普通命令用`&&`与`||`：`cmd1 && cmd2`与`cmd1 || cmd2`。发生的事情是这样的：如果cmd1执行成功（即返回0），那么第一个命令中的cmd2会执行，第二个命令中的cmd2不执行；反之cmd1执行失败（返回非0），那么前一个cmd2不执行，后一个执行。
 
+## 循环
 
+和大部分编程语言一样，有while、until和两种for循环（for in、c风格for）。也有关键词break和continue。
 
+### while循环
 
+```sh
+while condition; do
+    commands
+done
+```
 
+condition的写法与if中的一致。
 
+### until循环
 
+```sh
+until condition; do
+    commands
+done
+```
 
+### for in循环
 
+```sh
+for variable in list; do
+    commands
+done
+```
 
+每次从list列表中取出一项作为变量，然后执行循环体。列表可以手动写`for i in w1 w2 w3`，也可以用通配符`for i in *.png`，还可以通过子命令`for i in $(cat ~/.bashrc)`（这个命令会便利每个词）
+
+## 函数
+
+老朋友了，定义函数可以用`fn() {}`或`function fn() {}`。参数名字规则和脚本里都差不多。
+
+函数里声明的变量属于全局变量。可以用local声明局部变量。
+
+## shell启动环境
+
+（这里都用bash举例，事实上zsh应该也差不多）
+
+每次使用shell的时候，都会开启一个session。session分两类，登陆session与非登陆session。退出session的时候会执行`~/.bash_logout`。需要用账号密码登陆的shell，或者用`bash -l/--login`创建的都是登陆shell。在命令行中执行`bash`就会创建一个非登陆session。
+
+此外还有交互式与非交互式的分类方式，这个就比较直观了，就看你在shell中能不能交互式地输入命令得到结果。比如`bash a.sh`肯定是非交互式的，`bash`创建新的session肯定是交互式的。
+
+这样就可以分成四类。ssh登陆到服务器，显然是交互式登陆；在ssh之后用bash，这是交互式非登陆；用scp传文件，应该是非交互式登陆；在ssh之后用bash执行某个脚本，是非交互式非登陆。
+此外，在桌面环境中开启一个新的终端模拟器似乎是交互式非登陆；但是在mac上貌似又是登陆？？？晕。
+
+### 登陆session
+
+是登陆系统之后，系统为用户开的原始session。会对系统环境进行初始化，依次启动如下脚本：
+
+- `/etc/profile`，所有用户的全局配置脚本；`/etc/profile.d`目录里的所有扩展名为sh的文件。
+
+- `~/.bash_profile`，如果该脚本存在则不再往下执行。之后是`~/bash_login`之类的，反正我也不用，不记了。
+
+一般会在`~/.bash_profile`中写入：
+
+```sh
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
+```
+
+用`~/.bashrc`来初始化。
+
+！！！注意：在非交互式登陆中，似乎是直接执行`~/.bashrc`的，因此`~/.bashrc`的执行结果中不应该有回显或者输出任何内容。
+这是我之前踩过的坑。在`~/.bashrc`里写了几行，进入zsh。这样显然会导致scp（非交互式登陆）出问题。
+
+使用`bash --login`命令可以强制执行登陆session要执行的脚本。
+
+### 非登陆session
+
+是用户进入系统后手动创建的session。它会依次执行如下脚本：
+
+- `/etc/bash.bashrc`
+
+- `~/.bashrc`
 
 ## 命令提示符
 
