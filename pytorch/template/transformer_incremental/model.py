@@ -242,7 +242,7 @@ class Decoder(nn.Module):
     def init_layer_caches(self):
         self.layer_caches = [{'self_keys': None, 'self_values': None, 'memory_keys': None, 'memory_values': None} for _ in self.layers]
 
-    def forward(self, trg, enc_src, trg_mask, src_mask,):
+    def forward(self, trg, enc_src, trg_mask, src_mask, start_idx=0):
         # trg: [batch size, trg len]
         # enc_src: [batch size, src len, hid dim]
         # trg_mask: [batch size, 1, trg len, trg len]
@@ -251,7 +251,7 @@ class Decoder(nn.Module):
         batch_size = trg.size(0)
         trg_len = trg.size(1)
 
-        pos_indices = torch.arange(0, trg_len).unsqueeze(0).repeat(batch_size, 1).to(self.device)
+        pos_indices = torch.arange(start_idx, start_idx+trg_len).unsqueeze(0).repeat(batch_size, 1).to(self.device)
 
         trg = self.dropout(
             (self.token_embedding(trg) * self.sacle) + 

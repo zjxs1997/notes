@@ -28,7 +28,7 @@ def decode(model, source_field, target_field, source_indices, device, maxlen=120
     for i in range(maxlen):
         trg_tensor = torch.tensor(trg_indices[-1:], dtype=torch.int64, device=device).unsqueeze(0)
         trg_mask = model.decoder.create_trg_mask(trg_tensor)
-        output, attention = model.decoder(trg_tensor, enc_src, trg_mask, src_mask)
+        output, attention = model.decoder(trg_tensor, enc_src, trg_mask, src_mask, start_idx=i)
         # output: [batch size=1, seq len=1, vocab size]
         # attention: [batch size=1, num heads, trg len=1, src len]
 
