@@ -10,4 +10,4 @@ echo "clash exited"
 & 'C:\Program Files\Clash for Windows\Clash for Windows.exe'
 echo "clash restarted"
 
-添加定时任务的时候，文件路径似乎要用双引号引起来。这是我在用ccleaner的时候想到的。
+# 添加定时任务的时候，文件路径似乎要用双引号引起来。这是我在用ccleaner的时候想到的。

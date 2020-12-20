@@ -1,6 +1,8 @@
 # 大名鼎鼎的xfmr
 
-这里应该插一幅图
+<div align="center">
+    <img src="_img/transformer_illustration.jpg" width="300">
+</div>
 
 如图所示，transformer中最重要的结构就是attention。
 
@@ -53,7 +55,12 @@ decode的步骤就会复杂一点。但大致上也是两步走，第一步计�
 
 现在在mask的前提下讨论。既然已经mask了，那self-attention的时候，后面新增的token对前面的attention计算、output计算就完全没有影响了。在context attention的时候更没有影响。因此，就是后一个decode时序，比前一个decode时序，query多了一行vector，仅此而已。decode的时候（在self attention时），只需要对这行多出来的vector进行操作，也就相当于query len强制变成了1。但是key和value就可以作为保存的状态，每次decode的时候先取出来，然后更新（增加一行），再做self-attention的计算。如果是context attention就更简单了，计算一次key和value，就可以保存起来，以后也不用更新。
 
-这里应该贴一段代码。
+可以参考这一段代码：
+
+<div align="center">
+    <img src="_img/transformer_decode_code.jpg" width="400">
+</div>
+
 
 关于增量式decode的示意图：
 
@@ -61,4 +68,4 @@ decode的步骤就会复杂一点。但大致上也是两步走，第一步计�
     <img src="_img/transformer_decode.jpg" width="500">
 </div>
 
-todo:写一遍增量式decode的代码。
+todo:写一遍增量式decode的代码。done？
