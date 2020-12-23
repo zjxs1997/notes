@@ -37,3 +37,32 @@
 可以怎么hack呢？我现在想到的方式，就是继承原来的这个Batch，重写它的构造函数。而Iterator因为import了这个Batch类，所以也要重新写过，考虑到也不能直接修改库的代码，所以最好把`torchtext/data/iterator.py`复制一份到当前工程的目录，然后改了它的import。。。
 
 emmm就写到这里吧。。。以后有什么更好的想法接着写。。。
+
+### 12.23更新
+
+学到了，其实不用那么大费周章。只需要在执行load_dataset的代码中加入这么几段：
+
+```python
+from torchtext.data import Batch
+# 定义Batch新的构造函数，参数什么的都从原始的那个里copy即可
+def ff():
+    pass
+Batch.__init__ = ff
+```
+
+我在测试的时候，在原始的构造函数最前面加了个print，结果执行的时候确实可以print出来。
+
+另外要注意，这种情况是别的地方没有代码用到这个Batch类，所以我可以肆无忌惮地改它绑定的方法。不过这段代码写的位置似乎没有讲究，在`import Iterator`了之后再写似乎也没什么问题，当然肯定是要在遍历Iterator之前修改的。
+
+在另外一种情况，你在自己别的地方的代码里用到了原始的Batch类，但是Iterator中用的那个Batch则无所谓，你希望只修改那里的Batch的代码。可以这样操作：
+
+```python
+import torchtext.data.iterator as it
+from torchtext.data import Batch
+class MyBatch(Batch):
+    def __init__(self, data=None, dataset=None, device=None):
+        pass
+it.Batch = MyBatch
+```
+
+这样修改的是iterator.py这份代码里的Batch，而不会影响到外部别人使用的Batch。
