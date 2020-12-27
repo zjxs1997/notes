@@ -4,11 +4,11 @@ _deprecated目录下的东西就别看了= =
 
 cmd-related目录下是一些命令行工具以及配置的笔记
 
+javascript目录下是相关的笔记。现在感觉前端基础太差了，有必要稍微系统地学一下。。。
+
 latex目录下是latex相关，有模板（但估计也用不着了
 
 nlp-evaluation目录下是nlp中常见的自动评测指标，代码和笔记。
-
-pointer-network目录下是很久以前写的一个简单地指针网络seq2seq代码。（是不是放进pytorch目录下比较好
 
 python目录下则是关于python语言的一些笔记，比如调试的pdb、import的注意事项等。
 
