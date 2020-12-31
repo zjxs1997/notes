@@ -1,5 +1,5 @@
 # 详见：https://github.com/pltrdy/rouge
-
+# 貌似是rouge1、rouge2和rougeL
 from rouge import Rouge
 
 import en_core_web_sm
@@ -22,4 +22,16 @@ for r, h in zip(open(ref_path), open(hyp_path)):
 rouge = Rouge()
 scores = rouge.get_scores(list_of_hyps, list_of_refs, avg=True)
 print(scores)
+
+
+# 详见：https://pypi.org/project/rouge-score/
+# 看了代码，貌似rouge1-9都行；其他还有rougeL、以及貌似还有个基于文档级别的rougeL
+from rouge_score import rouge_scorer
+
+scorer = rouge_scorer.RougeScorer(['rouge1', 'rouge2', 'rougeL'], use_stemmer=True)
+scores = scorer.score('sdf', 'sdf dfds')
+# {'rouge1': Score(precision=0.5, recall=1.0, fmeasure=0.6666666666666666),
+#  'rouge2': Score(precision=0.0, recall=0.0, fmeasure=0.0),
+#  'rougeL': Score(precision=0.5, recall=1.0, fmeasure=0.6666666666666666)}
+# 用scores['rouge1'][2]即可提出rouge1的f1 score
 
