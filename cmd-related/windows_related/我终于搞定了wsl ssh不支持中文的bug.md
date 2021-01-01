@@ -7,4 +7,4 @@ bug描述：wsl用ssh连接到集群服务器的时候，会不支持中文。�
 解决方法：
 用`sudo vim /etc/default/locale`命令修改，把之前的`LANG=C.UTF-8`改为`LANG=zh_CN.UTF-8`。然后安装对应的语言包：`sudo apt-get install language-pack-zh-hans`，重启即可。
 
-
+wsl还有这种操作：如果想在vscode里选择wsl的python解释器的话，就要开一个类似于远程连接的服务，不过其实是本地开端口，本地连接。
