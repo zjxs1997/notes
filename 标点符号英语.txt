@@ -1,5 +1,7 @@
 有的时候想google搜索但是发现不知道优先标点符号的英文说法，就很僵硬。这里总结整理一下（编程相关的）。
 # 参考这个链接：https://wenku.baidu.com/view/471adf4df7ec4afe04a1dfe5.html
+# 以及维基百科等
+# 还有ryf的这个连接：http://www.ruanyifeng.com/blog/2007/07/english_punctuation.html
 
 句号. period
 逗号, comma
@@ -7,27 +9,28 @@
 分号; semicolon
 感叹号! exclamation
 问号? question mark
-连字号- hyphen
-_
+连字号/横杠/- hyphen
+下划线_ underline
 单引号' single quotation mark
 双引号" double quotation mark
-~
-`
-#
-$
-%
-^
-&
-+
-*
-/
-=
-()
-[]
-{}
-/
-\
-|
-<
->
-
+波浪号~ tilde
+反引号` backquote
+井号# pound sign/hash
+美元符号$ dollar
+百分号% percent
+^ caret
+（and符号？）& ampersand
+加号+ plus
+减号- minus（减号似乎和连字符有点区别。。。）
+称号* multiplication
+除号/ （如果是➗那种除号，好像是叫obelus
+等号= equal sign？
+小括号/圆括号() parenthesis（复数把i变成e）
+中括号/方括号[] square brackets
+大括号/花括号{} curly brackets
+角括号？<> angle brackets
+斜杠/ slash
+反斜杠\ backslash
+竖线| vertical bar
+小于号< less than
+大于号> more than
