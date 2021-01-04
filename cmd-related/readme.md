@@ -10,15 +10,3 @@
 
 - [terminal_proxy.sh](terminal_proxy.sh)介绍了在终端中启用代理的命令【好像也没必要专门开个文件】，也有powershell的。
 
----
-
-- 与windows非常相关的的被我送到了[windows_related](windows_related)这个目录下，包括之前的：
-
-    - restart_clash_for_windows.ps1是个powershell脚本，可以重启clash软件。现在已经成功配置自动任务，这之后clash再也没有挂掉过
-
-    - 另外还有windows添加右键菜单、以及之前配置wsl和windows terminal的一些经历。
-
-
-
-
-
