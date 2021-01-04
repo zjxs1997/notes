@@ -54,3 +54,8 @@ Windows Registry Editor Version 5.00
 
 这个[地址](https://stackoverflow.com/questions/20449316/how-add-context-menu-item-to-windows-explorer-for-folders)似乎说的比较清楚。
 
+---
+
+2021.1.4更新
+
+直接编辑注册表未免太蠢了，找到一个repo，可以用gui的形式添加、隐藏、删除、编辑等。虽然归根结底还是要编辑命令，但是比直接找注册表项方便多了！
