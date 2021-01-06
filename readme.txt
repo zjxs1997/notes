@@ -20,6 +20,8 @@ server-related目录下是和服务器相关的。里面也涉及到了一些命
 
 toolkit下面是写的一些小工具代码snippet。
 
+windows-related目录下是和windows系统相关的笔记。
+
 # 有些一下子找不到的，建议使用全局搜索。
 
 # todo：
