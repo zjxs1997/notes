@@ -35,6 +35,18 @@ strict是个bool值，控制是否采用严格模式。如果是True，那么必
 另外必须注意的是，embedding的值必须要小心对待。
 因为两个模型处理的数据集不一样，词表几乎可以说肯定不同。所以vocab是必须保存下来的，以便和原始模型的vocab做比较、生成新的embedding参数。
 还有就是position embedding等，也要特殊处理一下，不过比token embedding要方便。
+最后就是decoder最后需要通过一个Linear层，这个层的输出dim是vocab的size。
 
 ---
 额，怎么感觉写了一堆废话
+
+
+另外可以看看这个[链接](https://zhuanlan.zhihu.com/p/98563721)
+
+## 顺便记录一下常见module的state_dict
+
+- Linear: bias, weight
+
+- Embedding: weight
+
+- 额，别的好像都蛮复杂的，orz。算了，有必要的时候自己定义一个看看好了
