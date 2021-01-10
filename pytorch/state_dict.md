@@ -19,6 +19,8 @@ class Model(nn.Module):
 对应的value则是这些子模块的值tensor。
 这些value貌似require_grad的值都是False，然后device对应的是模型的device。
 
+**！注意！** pytorch1.6版本之后，torch.save保存的是zipfile-based文件格式，虽然torch.load还是可以读取旧的文件格式。但是低版本的pytorch将无法读取这些zipfile格式。如果想要用旧的格式保存，需要在torch.save函数中把`_use_new_zipfile_serialization`参数设置成`False`。
+
 ## load_state_dict
 
 除了self之外，这个函数实际上还有两个参数，一个是state_dict，另一个是strict。
