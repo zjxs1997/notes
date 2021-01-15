@@ -6,3 +6,7 @@
 
 - [CodeBert](https://github.com/microsoft/CodeBERT)，虽然说这个可以写到pytorch的transformers里面😅
 
+## 2020.1.11
+
+- sshfs，可以把目标系统的某个目录挂载到当前目录下面，有目标系统的ssh访问账号即可。
+具体用法？看tldr。
