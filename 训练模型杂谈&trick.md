@@ -21,6 +21,7 @@ suffix = sys[1] if len(sys) >= 2 else 'suffix'
 ！！！需要注意，如果要load恢复，就一定要保证field、dataset之类的对象都保存，并且与保存的checkpoint配套。因为torchtext的build_vocab似乎不保证创建出来的词表是一样的。
 
 ！！！可以更进一步，用一个dict，把模型的state_dict、optimizer的，参数，以及词表field文件都存下来。
+pytorch官方也是这么[建议](https://pytorch.org/tutorials/beginner/saving_loading_models.html#saving-loading-a-general-checkpoint-for-inference-and-or-resuming-training)的
 
 - 用torchtext库load_dataset的时候可以保存Dataset object，下次执行的时候检查是否已经有保存的了。如果有就直接load，省去了build from scratch的时间。
 
