@@ -86,3 +86,30 @@ optimizer = optim.SGD(
 )
 
 
+# ==================================================================
+# KL散度loss
+# kld接受预测的概率分布input和标准概率分布target作为输入，input和target的shape应当一致
+# 需要注意，input必须是log softmax
+# 而target需要是softmax，
+# 但是在版本比较新的pytorch中，KLDivLoss可以指定参数log_target为True，在这种情况下，target也是log softmax
+kld = nn.KLDivLoss()
+kld_log = nn.KLDivLoss(log_target=True)
+a = torch.log_softmax(torch.rand(1, 2), dim=-1)
+b = torch.rand(1, 2)
+print(kld(a, torch.softmax(b, dim=-1)))
+print(kld_log(a, torch.log_softmax(b, dim=-1)))
+
+# 输出：
+# tensor(0.0114)
+# tensor(0.0114)
+
+# 根据kld计算公式，loss应当是a * log(a/a') = a * log(a) - a * log(a')
+# 其中a是target，而a'是input的预测概率，因此：
+bb = torch.softmax(b, dim=-1)
+torch.sum(bb*torch.log(bb) - bb*a) / 2
+# 输出：
+# tensor(0.0114)
+
+#也就是说自己计算和调用KLD计算应该是没有区别的，也就是说loss变成NaN这锅，Loss还是不背ORZ
+
+
