@@ -19,4 +19,11 @@ export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_pr
 安装了KDE-standard的桌面环境。之后需要选择桌面管理器，选了SDDM。
 之后登陆的时候可以在左下角切换桌面环境。
 
+## deb
+
+- 不用root权限安装deb包（目前没有尝试过）：
+```bash
+dpkg -i package.deb --force-not-root --root=$HOME
+```
+
 
