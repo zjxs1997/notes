@@ -13,6 +13,10 @@ import torch.optim as optim
 # 它有两个可调参数，alpha参数和gamma参数。其中alpha参数主要用于衰减负样本的权重，gamma参数主要用于衰减容易训练样本的权重。
 # 从而让模型更加聚焦在正样本和困难样本上。这就是为什么这个损失函数叫做Focal Loss。
 
+# 3.13更新：focal loss的计算公式其实很简单，在cross entropy前面乘以(1-预测概率)^gamma即可。也不需要局限在二分类上。
+# 直观理解的话，如果一个样本很容易预测，那么它对应的正确标签的预测概率就会比较接近1，那么1减去它，平方之后权重衰减会更快。
+# 至于alpha这个参数，据说其实也没啥用，也没有什么参考价值。
+
 class FocalLoss(nn.Module):
     def __init__(self,gamma=2.0,alpha=0.75):
         super().__init__()
