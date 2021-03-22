@@ -8,6 +8,8 @@ javascript目录下是相关的笔记。现在感觉前端基础太差了，有�
 
 latex目录下是latex相关，有模板（但估计也用不着了
 
+mics下面就是很杂的东西
+
 nlp-evaluation目录下是nlp中常见的自动评测指标，代码和笔记。
 
 python目录下则是关于python语言的一些笔记，比如调试的pdb、import的注意事项等。
