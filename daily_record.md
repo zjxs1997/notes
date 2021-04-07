@@ -29,3 +29,10 @@ def cmp(a, b):
 from functools import cmp_to_key
 sorted(l, key=cmp_to_key(cmp))
 ```
+
+## 2021.4.7
+python的几个命令行参数
+- `-m`，执行某个模块的代码
+- `-i`，进入可交互界面执行某脚本（如果脚本出错，也会保留在交互式界面中）
+- `-q`，静默模式，进入交互式界面前不输出文本
+- `-c`，在shell中输入python脚本执行
