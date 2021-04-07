@@ -20,6 +20,10 @@
 
 - [sample_from_logit.py](sample_from_logit.py)是top-p、top-k sampling的小脚本。
 
+- [scheduler](scheduler.md)是用来动态调整学习率的一个模块。
+
+- [state_dict](state_dict.md)，如果要保存的话，最好用这个。
+
 <!-- 
 
 - [fairseq学习笔记.md](fairseq学习笔记.md)是fairseq这个库的笔记。虽然做了笔记，但其实没有真的用过。

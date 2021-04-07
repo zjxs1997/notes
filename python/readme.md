@@ -2,6 +2,8 @@
 
 - [decoator_test.py](decoator_test.py)是python装饰器的一个小实验。decorator其实就是一个输入参数和返回值都是函数的函数
 
+- [fstring](fstring.md)下面记录了一些python的f-string的用法。
+
 - [install_python_code_as_lib.md](install_python_code_as_lib.md)：如何把自己的py代码安装成库（使用setuptools）
 
 - [python-import.md](python-import.md)：令人迷惑的python import问题
