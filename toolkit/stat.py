@@ -1,4 +1,5 @@
 # 计算均值、方差、协方差、pearson系数
+# pearson，就是协方差除以两个方差之积
 import statistics
 
 X = [1, 2, 3, 4]
@@ -15,7 +16,6 @@ for x, y in zip(X, Y):
 cov = cov / (len(X)-1)
 
 pearson = cov / (x_std * y_std)
-
 print(pearson)
 
 # pearson系数其实可以用scipy直接计算：
