@@ -10,6 +10,9 @@ Bert印象比较深刻，预训练任务有两个，MLM和NSP。模型的构成�
 - NSP： next sentence prediction，把两个句子连起来，通过encoder编码后，cls token通过一个分类器，来预测这两个句子有没有前后顺序的关系。
 
 但是据说这个任务反而是会降低模型的表现，因此在Roberta里面把这个任务删掉了。
+bert还有其他很多的变体，都是大同小异，而且很多无非就是换了几个不同领域的预训练文本罢了。
+
+bert的文本输入模式是：`[cls] text [sep] (optional: text2 [sep])`
 
 ## GPT
 
@@ -20,6 +23,8 @@ GPT与Bert的区别就在于，GPT的预训练任务相当于是专门针对生�
 bart模型同时包含transformer的encoder和decoder。
 bart的预训练方式有点类似MLM，mask掉输入文本中的几个span，但是它会把输入比较随机地打乱，最后通过decoder来构建出原始的序列。
 
+bart的文本输入模式是：`<s> text </s> (optional: text2 </s>)`
+
 ## Pegasus
 
 Pegasus是一个专门针对摘要做的预训练模型。有一个完整的transformer encoder & decoder结构。预训练任务是MLM和GSG。以及，在large模型中取消了MLM任务。
@@ -27,4 +32,5 @@ Pegasus是一个专门针对摘要做的预训练模型。有一个完整的tran
 - GSG： Gap Sentence Generation，输入文档中，按某个比例把其中的句子mask掉，然后模型通过decoder生成这些句子。
 具体这些句子怎么选择，也有讲究。通过rouge指标挑选出文档中最重要的几个句子。具体的重要法也有好几种评价方式，不展开了。
 
+这个模型目前完全没有用过【
 
