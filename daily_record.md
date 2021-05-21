@@ -53,14 +53,4 @@ statistics.stdev([1,2,3,4])
 # = sqrt(5/3)
 ```
 
-## python logger
-可以通过`logging.Logger.manager.loggerDict`来获取已经被实例化的所有logger。  
-通过这个dict，就可以很方便地做一些事情，比如huggingface的transformer库总喜欢log出一堆内容来，看起来有点烦。可以通过这段脚本禁用这些log：
-```python
-m = logging.Logger.manager
-for val in m.loggerDict.values():
-    if isinstance(val, logging.Logger):
-        val.setLevel(logging.ERROR)
-```
-不过要注意这段脚本的位置，需要在`import transformers`库之后执行。
 
