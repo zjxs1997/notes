@@ -25,6 +25,11 @@ scores = rouge.get_scores(list_of_hyps, list_of_refs, avg=True)
 print(scores)
 
 
+# ---------------------------------
+# ------------- 分割线 -------------
+# ---------------------------------
+
+
 # 详见：https://pypi.org/project/rouge-score/
 # 看了代码，貌似rouge1-9都行；其他还有rougeL、以及貌似还有个基于文档级别的rougeL
 from rouge_score import rouge_scorer
@@ -42,6 +47,13 @@ scores = scorer.score('sdf', 'sdf dfds')
 import files2rouge
 
 files2rouge.run()
+
+
+# ---------------------------------
+# ------------- 分割线 -------------
+# ---------------------------------
+
+
 
 
 # 详见：https://github.com/li-plus/rouge-metric
