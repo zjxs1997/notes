@@ -1,3 +1,9 @@
+# 又学到新技巧了！
+# 通过这个命令就可以全局禁用所有log了！
+# 太好了！终于不会被transformers的log烦到了！
+# logging.disable(logging.CRITICAL)
+
+
 # 新技巧！
 
 # 可以通过`logging.Logger.manager.loggerDict`来获取已经被实例化的所有logger。  
