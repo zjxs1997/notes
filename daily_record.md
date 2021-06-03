@@ -53,4 +53,5 @@ statistics.stdev([1,2,3,4])
 # = sqrt(5/3)
 ```
 
-
+## 2021.6.3
+zsh里可以设置路径别名：`hash -d x='/path/to/xxx'`。然后就可以通过`ls ~x`这种方式使用了。
