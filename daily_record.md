@@ -55,3 +55,6 @@ statistics.stdev([1,2,3,4])
 
 ## 2021.6.3
 zsh里可以设置路径别名：`hash -d x='/path/to/xxx'`。然后就可以通过`ls ~x`这种方式使用了。
+
+## 2021.6.15
+git突然push不到github去了。可能要改一下.git/config的配置，把url改成ssh或https的格式。
