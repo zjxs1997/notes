@@ -58,3 +58,9 @@ zsh里可以设置路径别名：`hash -d x='/path/to/xxx'`。然后就可以通
 
 ## 2021.6.15
 git突然push不到github去了。可能要改一下.git/config的配置，把url改成ssh或https的格式。
+
+## 2021.6.24
+如果要修改git commit信息，可以用amend。  
+python库：ice cream，可以更方便的用来print调试。  
+cpp库：fmt。在windows下面要vscode lint的话，就把头文件全部放到一个目录下面，并且在c/cpp插件的配置里增加includePath。
+
