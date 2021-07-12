@@ -28,6 +28,8 @@ htop：
 - ctrl + shift + t： 重新打开刚刚关闭的tab
 - ctrl + shift + o： 跳转到某个符号
 - ctrl + k, o： 在新窗口中打开当前文件。（在没有多窗口支持的现在，这个可以勉强算作替代方式吧）
+- shift + alt/option + f：格式化代码，在cpp里比较有用，不过可以开自动化（设置editor.formatOnType或formatOnSave）
+
 
 
 

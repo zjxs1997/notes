@@ -14,6 +14,12 @@ bert还有其他很多的变体，都是大同小异，而且很多无非就是�
 
 bert的文本输入模式是：`[cls] text [sep] (optional: text2 [sep])`
 
+## Roberta
+
+在bert的基础上的改进。删了NSP任务，也因此type embedding层只能接受0输入（bert需要区分两个句子的位置顺序，所以是01）。
+
+文本输入模式是：`<s> text </s>`
+
 ## GPT
 
 GPT与Bert的区别就在于，GPT的预训练任务相当于是专门针对生成式模型的。Bert的双向encode模式无疑不适用于序列生成，因为在生成当前序列的时候理论上是看不到之后的序列的。因此GPT采用的是三角形式的attention，相当于就是用transformer的decoder堆叠起来的。预训练方式可以称为autoregressive。
