@@ -18,7 +18,22 @@ bert的文本输入模式是：`[cls] text [sep] (optional: text2 [sep])`
 
 在bert的基础上的改进。删了NSP任务，也因此type embedding层只能接受0输入（bert需要区分两个句子的位置顺序，所以是01）。
 
+具体的改进是：
+
+- 删除了NSP
+- 更大的batch size和training epoch，用更多数据
+- 动态的mask，不同于BERT所有序列都在一开始mask好
+- BPE
+
 文本输入模式是：`<s> text </s>`
+
+## ALBERT
+
+是bert的light版本。
+
+- embedding层的改造，先把所有token embed到某个低维空间，再映射到embed空间
+- 参数共享
+- 用句子顺序预测任务替代NSP
 
 ## GPT
 
