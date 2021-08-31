@@ -46,6 +46,12 @@ ROUGE-S是基于skip-gram。而ROUGE-SU除了skip-gram之外也考虑unigram。
 
 
 
+## BertScore
+
+这个指标一般是用来评价paraphrase的效果的。
+对两个句子用Bert提取特征，得到所有token的向量表示。然后每个向量去和max程度最高的取做对齐，求平均后得到recall和precision，以及F-1 score。
+
+
 
 
 
