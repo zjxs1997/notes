@@ -46,6 +46,9 @@ bart的预训练方式有点类似MLM，mask掉输入文本中的几个span，�
 
 bart的文本输入模式是：`<s> text </s> (optional: text2 </s>)`
 
+细微处的区别： BERT uses an additional feed-forward network before word-prediction, which BART does not. 
+就是说BART没有额外的feed-forward部分
+
 ## Pegasus
 
 Pegasus是一个专门针对摘要做的预训练模型。有一个完整的transformer encoder & decoder结构。预训练任务是MLM和GSG。以及，在large模型中取消了MLM任务。
