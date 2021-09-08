@@ -16,6 +16,9 @@
 - oh-my-zsh
 - customize
 
+### nodejs & npm
+- switch to taobao source
+
 
 
 
