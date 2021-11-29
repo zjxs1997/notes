@@ -42,6 +42,7 @@
 - Hammerspoon & customize `init.lua`
 - service station from `AppStore` & customize：用来设置右键菜单，记得加个vscode
 - Mos（设置鼠标滚轮）
+- [MonitorControl](https://github.com/MonitorControl/MonitorControl)：通过软件的方式控制显示器参数
 
 
 ## Windows
