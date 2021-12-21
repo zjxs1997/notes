@@ -5,8 +5,11 @@
 主题类  
 
 - Atom One Light Theme
+- Community Material Theme
 - Eva Theme
 - Github Light Theme
+- GitHub Plus Theme
+- GitHub Theme
 - Material Icon Theme
 - Material Theme
 - Material Theme Icons
@@ -31,9 +34,12 @@ language server 类（这个感觉并没有太大的必要记录，毕竟是刚�
 其他实用插件
 
 - remote-SSH套装
+- Git Blame
+- Gitlens 等
 
 放飞自我
 
 - Auto.js-VSCodeExt-Fixed
 - GistPad
+- Hammerspoon Sinppets
 
