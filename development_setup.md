@@ -11,6 +11,8 @@
 ### tmux
 - oh-my-tmux
 - customize
+  - set -g mouse on
+  - set -g default-terminal "xterm-256color" （可以解决macOS上backspace出问题的情况）
 
 ### zsh
 - oh-my-zsh
@@ -25,7 +27,8 @@
 
 ## local
 
-- vscode & synchronize plugins & settings
+- vscode & synchronize plugins(necessary?) & settings
+  - set cmd + pageup/pagedown to switch terminal
 - [wallessPKU](https://blog.wallesspku.space/blog/post/hiaoxui/clash-zh) & clash
 - Chrome & login & synchronize tampermonkey scripts
 - create ssh key & update to server
@@ -43,6 +46,7 @@
 - service station from `AppStore` & customize：用来设置右键菜单，记得加个vscode
 - Mos（设置鼠标滚轮）
 - [MonitorControl](https://github.com/MonitorControl/MonitorControl)：通过软件的方式控制显示器参数
+- clipy（剪切板管理工具）
 
 
 ## Windows
@@ -50,4 +54,5 @@
 - windows terminal
 - WSL 
 - setup right click menu
+- setup shortcut to certain script (hibernate, ...)
 
