@@ -40,6 +40,7 @@
 
 - homebrew
 - iterm2，设置[主题配色](https://github.com/mbadolato/iTerm2-Color-Schemes)，以及键盘按键映射（主要是command/option+左右）
+  - or just: profiles - keys - key mappings - presets: Natural Text Editing
 - [alt-tab](https://alt-tab-macos.netlify.app/): `brew install alt-tab` & customize
 - alfred（maybe破解，但其实没太大用处了）
 - Hammerspoon & customize `init.lua`
